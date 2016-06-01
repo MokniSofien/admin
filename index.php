@@ -34,9 +34,9 @@ function ValidateLayer1(theForm)
    <form method="POST" action="login.php">
 <div id="Layer1" style="position:absolute;text-align:center;left:241px;top:122px;width:450px;height:200px;z-index:5;">
 <div id="Layer1_Container" style="width:450px;position:relative;margin-left:auto;margin-right:auto;text-align:left;">
-<input name="email" id="user"style="position:absolute;left:64px;top:38px;width:335px;height:22px;z-index:0;" rows="0" cols="46" placeholder="email" />
+<input name="email" id="user"style="position:absolute;left:64px;top:38px;width:335px;height:22px;z-index:0;" rows="0" cols="46" placeholder="email" required="required" />
 
-<input name="pass" type="password" id="TextArea1" style="position:absolute;left:64px;top:94px;width:335px;height:21px;z-index:1;" rows="0" cols="46" maxlength="25"  placeholder="password"/>
+<input name="pass" type="password" id="TextArea1" style="position:absolute;left:64px;top:94px;width:335px;height:21px;z-index:1;" rows="0" cols="46" maxlength="25"  placeholder="password"required="required"/>
 <div id="wb_Image1" style="position:absolute;left:71px;top:44px;width:17px;height:16px;z-index:2;">
 <img src="images/user.png" id="Image1" alt=""></div>
 <div id="wb_Image2" style="position:absolute;left:73px;top:99px;width:14px;height:16px;z-index:3;">

@@ -17,8 +17,9 @@ $db = mysqli_connect('localhost','root','')  or die('Erreur de connexion '.mysql
     $sql = "INSERT INTO article VALUES('','$Image','$titre',NOW(),'$auteur','$text')"; 
      
     mysqli_query($db,$sql) or die('Erreur SQL !'.$sql.'<br>'.mysqli_error($db)); 
-
-     header('location:/travail/admin/liste_article/');
+	echo '<body onLoad="alert(\'article ajoute avec succés\')">';
+		// puis on le redirige vers la page d'accueil
+		echo '<meta http-equiv="refresh" content="0;URL=../liste_article/index.php?id='.$id.'">';
 
     mysqli_close($db);  
     } 

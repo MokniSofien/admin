@@ -80,72 +80,74 @@ while($ligne=mysqli_fetch_array($result))
 </form>
 </div>
 
-<?php }}?>
 
 <div id="Layer1">
 <div id="Layer4">
 <div id="Layer4_Container">
-<div id="Layer5">
+<div id="Layer5" >
 <div id="wb_Image10">
 <img src="images/dash.png" id="Image10" alt=""></div>
 <div id="wb_Text5"><a href="../dashboard">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Dashboard</strong></span></a></div>
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../dashboard/index.php?id=<?php echo $ligne['id']; ?>">Dashboard</a></strong></span></a></div>
 </div>
 
-<div id="Layer6" style="background-color: white;" >
-<div id="wb_Text5"><a href="../liste_produit/">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Produit</strong></span></div>
+<div id="Layer6" >
+<div id="wb_Text5"><a href="../liste_produit">
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../liste_produit/index.php?id=<?php echo $ligne['id']; ?>">Produit</a></strong></span></a></div>
 
 <div id="wb_Image7">
 <img src="images/notee.png" id="Image7" alt=""></div>
 </div>
-
-<div id="Layer7">
+<div id="Layer7"  style="background-color: white;" >
 <div id="wb_Image9" >
 <img src="images/com.png" id="Image9" alt=""></div>
-<div id="wb_Text5"><a href="../liste_blog"><a href="../list_article">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Blog</strong></span></div>
+<div id="wb_Text5"><a href="../liste_article">
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../liste_article/index.php?id=<?php echo $ligne['id']; ?>">Blog</a></strong></span></a></div>
+
 
 </div>
 
 
-<div id="Layer8">
+
+<div id="Layer8"  >
 <div id="wb_Image8">
 <img src="images/cli.png" id="Image8" alt=""></div>
 <div id="wb_Text6"><a href="../liste_client">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Membres</strong></span></div>
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../liste_client/index.php?id=<?php echo $ligne['id']; ?>">Membres</a></strong></span></a></div>
 </div>
-<div id="Layer9" <a href="../liste_mail">>
+<div id="Layer9">
 <div id="wb_Image6">
 <img src="images/mes.png" id="Image6" alt=""></div>
-<div id="wb_Text7">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Mails</strong></span></div>
+<div id="wb_Text7"><a href="../liste_mail">
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../liste_mail/index.php?id=<?php echo $ligne['id']; ?>">Mails</a></strong><a/></span></div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="Layer3">
 <div id="wb_Text2">
-<span style="color:#000000;font-family:Arial;font-size:10px;"><strong>Profil</strong></span></div>
+<span style="color:#000000;font-family:Arial;font-size:10px;"><strong><a href="../profil/index.php?id=<?php echo $ligne['id']; ?>"style="text-decoration:none; color:black;">Profil</a></strong></span></div>
 <div id="wb_Image3">
 <img src="images/logout.png" id="Image3" alt=""></div>
 <div id="wb_Image4">
 <img src="images/admin.png" id="Image4" alt=""></div>
 <div id="wb_Text3">
-<span style="color:#000000;font-family:Arial;font-size:10px;"><strong>Déconnexion</strong></span></div>
+<span style="color:#000000;font-family:Arial;font-size:10px;"><strong><a href ="logout.php" style="text-decoration:none; color:black;">Déconnexion</a></strong></span></div>
 </div>
 <div id="Layer2">
    <div id="wb_Image1">
-      <img src="images/logo_big.png" id="Image1" alt=""></div>
+      <img src="../images/logo.png" id="Image1" alt=""></div>
    <div id="wb_Text1">
       <span style="color:#FFFFFF;font-family:Arial;font-size:12px;">Administrateur</span></div>
    <div id="wb_Image2">
-      <img src="images/big%20admin.png" id="Image2" alt=""></div>
+      <img src="../images/big%20admin.png" id="Image2" alt=""></div>
    <div id="wb_Image5">
       <img onclick="changeme()" src="images/flechh.png" id="Image5" alt=""></div>
    <div id="wb_Text4">
       <span style="color:#FFFFFF;font-family:Arial;font-size:15px;"><strong>Klibi Hend</strong></span></div>
 </div>
+<?php }}?>
 </body>
 <script>
 function changeme() {

@@ -2,7 +2,7 @@
 
 extract($_POST);
 if(isset($_POST['submit']))
-{ 		
+{ 		$id=$_POST['id'];
 $Image=$_FILES['Image']['name'];
     $file_tmp_name=$_FILES['Image']['tmp_name'];
     move_uploaded_file($file_tmp_name,"./imageproduit/$Image");
@@ -16,9 +16,9 @@ $db = mysqli_connect('localhost','root','')  or die('Erreur de connexion '.mysql
     $sql = "INSERT INTO article VALUES('','$Image','$titre',NOW(),'$auteur','$text')"; 
      
     mysqli_query($db,$sql) or die('Erreur SQL !'.$sql.'<br>'.mysqli_error($db)); 
-
-    header('location:/travail/backend/_liste_article.php');
-
+		echo '<body onLoad="alert(\'article ajoute avec succés\')">';
+		// puis on le redirige vers la page d'accueil
+		echo '<meta http-equiv="refresh" content="0;URL=../liste_article/index.php?id='.$id.'">';
     mysqli_close($db);  
     } 
 

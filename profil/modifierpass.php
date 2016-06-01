@@ -15,7 +15,7 @@ $db = mysqli_connect('localhost','root','')  or die('Erreur de connexion '.mysql
 	
 	
 		echo '<body onLoad="alert(\'mot de passe bien changee \')">';
-		echo '<meta http-equiv="refresh" content="0;URL=../dash/index.php">';
+		echo '<meta http-equiv="refresh" content="0;URL=index.php?id='.$id.'">';
 	
 	
 	

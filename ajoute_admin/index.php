@@ -44,22 +44,24 @@ $(document).ready(function()
 </script>
 </head>
 <body>
+<?php $id=$_GET['id']; ?>
 <div id="container">
 
 </div>
+
 <div id="title"><span style=" position: relative; color:#4EB1CB;font-family:Arial;font-size:30px;"><strong>Ajouter Administrateur</strong></span></div>
 <div id="edit">
 <hr id="trait"></hr>
 <form method="POST" action="ajouter_admin.php"enctype="multipart/form-data">
 <div id="ajouter" style="position:relative;text-align:center;margin:auto;top:114px;width:608px;height:391px;z-index:21;" title="ajoute">
 <div id="ajouter_Container" style="width:608px;position:relative;margin-left:auto;margin-right:auto;text-align:left;">
-
-<input name="nom" id="TextArea1" type="text" style="position:absolute ;top:50px;width:100%;height:26px;z-index:16;" rows="0" cols="50" placeholder="Nom *"/>
-<input name="Prenom" id="TextArea2" style="position:absolute ;top:113px;width:100%;height:26px;z-index:13;" rows="0" cols="50"placeholder="Prenom *"/>
-<input name="Email" id="TextArea3" style="position:absolute;top:170px;width:100%;height:26px;z-index:14;" rows="0" cols="50"placeholder="E-mail *"/>
-<input name="password" id="TextArea4" style="position:absolute ;top:227px;width:100%;height:26px;z-index:15;" rows="0" cols="50"placeholder="Mot de passe *"/>
+<input name="id" type="hidden" value="<?php echo $id=$_GET['id']; ?>">
+<input name="nom" id="TextArea1" type="text" style="position:absolute ;top:50px;width:100%;height:26px;z-index:16;" rows="0" cols="50" placeholder="Nom *"required="required"/>
+<input name="Prenom" id="TextArea2" type="text" style="position:absolute ;top:113px;width:100%;height:26px;z-index:13;" rows="0" cols="50"placeholder="Prenom *"required="required"/>
+<input name="Email" type="email"id="TextArea3" style="position:absolute;top:170px;width:100%;height:26px;z-index:14;" rows="0" cols="50"placeholder="E-mail *"required="required"/>
+<input name="password" type="password"id="TextArea4" style="position:absolute ;top:227px;width:100%;height:26px;z-index:15;" rows="0" cols="50"placeholder="Mot de passe *"required="required"/>
 <input name="Image" type="File"  style="width:100%;    top: 280px;
-    position: absolute;"    rows="0" cols="50"/>
+    position: absolute;"    rows="0" cols="50" required="required"/>
 <input type="submit" name="submit" id="Button2" name="" value="Ajouter" style="position:absolute;left:119px;top:322px;width:141px;height:25px;z-index:18;">
  <input type="reset" id="Button2" name="" value="Quiter"  style="position:absolute;left:319px;top:322px;width:141px;height:25px;z-index:18;" onclick="window.location='../liste_Produit/'"/>
 </div>
@@ -68,74 +70,90 @@ $(document).ready(function()
 </div>
 
 
+<?php
+
+
+
+
+
+ $host="localhost";
+$user="root";
+$password="";
+ $dbname='com';
+$id=$_GET['id'];
+$cxn=mysqli_connect($host,$user,$password,$dbname);
+ $requete="select * from admin where id=".$id;
+$result=mysqli_query($cxn,$requete);
+ while ($ligne=mysqli_fetch_array($result)){
+	 $id=$ligne['id'];
+?>
 <div id="Layer1">
 <div id="Layer4">
 <div id="Layer4_Container">
-<div id="Layer5">
+<div id="Layer5" style="background-color: white;">
 <div id="wb_Image10">
 <img src="images/dash.png" id="Image10" alt=""></div>
-<div id="wb_Text5">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Dashboard</strong></span></div>
+<div id="wb_Text5"><a href="../dashboard">
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../dashboard/index.php?id=<?php echo $ligne['id']; ?>">Dashboard</a></strong></span></a></div>
 </div>
-<div id="Layer6">
-<div id="wb_jQueryMenu1">
-<ul id="jQueryMenu1">
-<li><a href="" target="_self" title="Produit">Produit</a>
 
-</li>
-</ul>
-</div>
+<div id="Layer6"  >
+<div id="wb_Text5"><a href="../liste_produit">
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../liste_produit/index.php?id=<?php echo $ligne['id']; ?>">Produit</a></strong></span></a></div>
+
 <div id="wb_Image7">
 <img src="images/notee.png" id="Image7" alt=""></div>
 </div>
-<div id="Layer7">
-<div id="wb_Image9">
+<div id="Layer7"  >
+<div id="wb_Image9" >
 <img src="images/com.png" id="Image9" alt=""></div>
-<div id="wb_jQueryMenu2">
-<ul id="jQueryMenu2">
-<li><a href="" target="_self" title="Blog">Blog</a>
+<div id="wb_Text5"><a href="../liste_article">
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../liste_article/index.php?id=<?php echo $ligne['id']; ?>">Blog</a></strong></span></a></div>
 
-</li>
-</ul>
+
 </div>
-</div>
-<div id="Layer8">
+
+
+
+<div id="Layer8"  >
 <div id="wb_Image8">
 <img src="images/cli.png" id="Image8" alt=""></div>
-<div id="wb_Text6">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Membres</strong></span></div>
+<div id="wb_Text6"><a href="../liste_client">
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../liste_client/index.php?id=<?php echo $ligne['id']; ?>">Membres</a></strong></span></a></div>
 </div>
 <div id="Layer9">
 <div id="wb_Image6">
 <img src="images/mes.png" id="Image6" alt=""></div>
-<div id="wb_Text7">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Mails</strong></span></div>
+<div id="wb_Text7"><a href="../liste_mail">
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../liste_mail/index.php?id=<?php echo $ligne['id']; ?>">Mails</a></strong><a/></span></div>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="Layer3">
 <div id="wb_Text2">
-<span style="color:#000000;font-family:Arial;font-size:15px;"><strong>Profil</strong></span></div>
+<span style="color:#000000;font-family:Arial;font-size:10px;"><strong><a href="../profil/index.php?id=<?php echo $ligne['id']; ?>"style="text-decoration:none; color:black;">Profil</a></strong></span></div>
 <div id="wb_Image3">
 <img src="images/logout.png" id="Image3" alt=""></div>
 <div id="wb_Image4">
 <img src="images/admin.png" id="Image4" alt=""></div>
 <div id="wb_Text3">
-<span style="color:#000000;font-family:Arial;font-size:15px;"><strong><a href ="logout.php" style="text-decoration:none; color:black;">Déconnexion</a></strong></span></div>
+<span style="color:#000000;font-family:Arial;font-size:10px;"><strong><a href ="logout.php" style="text-decoration:none; color:black;">Déconnexion</a></strong></span></div>
 </div>
 <div id="Layer2">
    <div id="wb_Image1">
-      <img src="images/logo_big.png" id="Image1" alt=""></div>
+      <img src="../images/logo.png" id="Image1" alt=""></div>
    <div id="wb_Text1">
       <span style="color:#FFFFFF;font-family:Arial;font-size:12px;">Administrateur</span></div>
    <div id="wb_Image2">
-      <img src="images/big%20admin.png" id="Image2" alt=""></div>
+      <img src="../images/big%20admin.png" id="Image2" alt=""></div>
    <div id="wb_Image5">
       <img onclick="changeme()" src="images/flechh.png" id="Image5" alt=""></div>
    <div id="wb_Text4">
       <span style="color:#FFFFFF;font-family:Arial;font-size:15px;"><strong>Klibi Hend</strong></span></div>
 </div>
+ <?php }?>
 </body>
 <script>
 function changeme() {

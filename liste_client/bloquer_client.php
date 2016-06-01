@@ -8,6 +8,7 @@
 	<?php
 	include_once("../connexion.php");
 $id_c=$_GET['id'];
+$id=$_GET['idd'];
 
 $db = mysqli_connect('localhost','root','')  or die('Erreur de connexion '.mysqli_error());
 
@@ -19,8 +20,8 @@ $db = mysqli_connect('localhost','root','')  or die('Erreur de connexion '.mysql
     mysqli_close($db);  
 
 	if($reponse==true){ 
-		header("location:index.php?id=".$_GET['id']."&etat=succes");
-	}else{
+	echo '<body onLoad="alert(\'mot de passe bien changee \')">';
+		echo '<meta http-equiv="refresh" content="0;URL=index.php?id='.$id.'">';}else{
 		echo "echec de suppression?id=".$id_c;
 	}
 	

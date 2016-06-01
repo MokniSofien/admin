@@ -6,7 +6,8 @@
 
 <body>
 	<?php
-	include_once("connexion.php");
+
+	$id=$_GET['idd'];
 $id_p=$_GET['id'];
 
 $db = mysqli_connect('localhost','root','')  or die('Erreur de connexion '.mysqli_error());
@@ -19,7 +20,10 @@ $db = mysqli_connect('localhost','root','')  or die('Erreur de connexion '.mysql
     mysqli_close($db);  
 
 	if($reponse==true){ 
-		header("location:/travail/admin/liste_Produit/");
+			echo '<body onLoad="alert(\'produit supprime\')">';
+		// puis on le redirige vers la page d'accueil
+		echo '<meta http-equiv="refresh" content="0;URL=../liste_Produit/index.php?id='.$id.'">';
+		
 	}else{
 		echo "echec de suppression?id=".$id_p;
 	}

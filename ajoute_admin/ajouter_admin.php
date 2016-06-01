@@ -3,7 +3,7 @@
 extract($_POST);
 if(isset($_POST['submit']))
 { 
-include_once'ajouter_produit.php';
+$id=$_POST['id'];
 		  $Image=$_FILES['Image']['name'];
     $file_tmp_name=$_FILES['Image']['tmp_name'];
     move_uploaded_file($file_tmp_name,"../imageproduit/$Image");
@@ -18,9 +18,9 @@ $db = mysqli_connect('localhost','root','')  or die('Erreur de connexion '.mysql
     $sql = "INSERT INTO admin VALUES('','$nom','$prenom','$email','$password','$Image')"; 
      
     mysqli_query($db,$sql) or die('Erreur SQL !'.$sql.'<br>'.mysqli_error($db)); 
+		echo '<body onLoad="alert(\'admin ajouté avec succés\')">';
 
-    header('location:/travail/admin/ajoute_admin');
-
+		echo '<meta http-equiv="refresh" content="0;URL=index.php?id='.$id.'">';
     mysqli_close($db);  
     } 
 

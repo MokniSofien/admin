@@ -8,7 +8,7 @@
 	<?php
 	include_once("../connexion.php");
 $id_c=$_GET['id'];
-
+$id=$_GET['idd'];
 $db = mysqli_connect('localhost','root','')  or die('Erreur de connexion '.mysqli_error());
 
     mysqli_select_db($db,'com')  or die('Erreur de selection '.mysqli_error($db)); 
@@ -19,8 +19,8 @@ $db = mysqli_connect('localhost','root','')  or die('Erreur de connexion '.mysql
     mysqli_close($db);  
 
 	if($reponse==true){ 
-		header("location:index.php?id=".$_GET['id']."&etat=succes");
-		echo "<script>alert('I am an alert box!')</script>"
+			echo '<body onLoad="alert(\'client deblouqe \')">';
+		echo '<meta http-equiv="refresh" content="0;URL=index.php?id='.$id.'">';
 	}else{
 		echo "echec de suppression?id=".$id_c;
 		

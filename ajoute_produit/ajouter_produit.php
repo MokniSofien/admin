@@ -2,7 +2,7 @@
 
 extract($_POST);
 if(isset($_POST['submit']))
-{ 
+{ $id=$_POST['idd'];
 include_once'ajouter_produit.php';
 		  $Image=$_FILES['Image']['name'];
     $file_tmp_name=$_FILES['Image']['tmp_name'];
@@ -18,8 +18,11 @@ $db = mysqli_connect('localhost','root','')  or die('Erreur de connexion '.mysql
     $sql = "INSERT INTO produit VALUES('','$nom','$Prix','$version','$Image','$Descreption')"; 
      
     mysqli_query($db,$sql) or die('Erreur SQL !'.$sql.'<br>'.mysqli_error($db)); 
+		echo '<body onLoad="alert(\'produit bien ajoute\')">';
+		// puis on le redirige vers la page d'accueil
+		echo '<meta http-equiv="refresh" content="0;URL=../liste_Produit/index.php?id='.$id.'">';
 
-    header('location:../liste_Produit/');
+   
 
     mysqli_close($db);  
     } 

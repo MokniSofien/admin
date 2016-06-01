@@ -103,31 +103,31 @@ $result=mysqli_query($cxn,$requete);
 
 </div>
 
- <?php }?>
+
 
 
 <div id="Layer1">
 <div id="Layer4">
 <div id="Layer4_Container">
-<div id="Layer5">
+<div id="Layer5"style="background-color: white;">
 <div id="wb_Image10">
 <img src="images/dash.png" id="Image10" alt=""></div>
 <div id="wb_Text5"><a href="../dashboard">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Dashboard</strong></span></a></div>
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../dashboard/index.php?id=<?php echo $ligne['id']; ?>">Dashboard</a></strong></span></a></div>
 </div>
 
 <div id="Layer6"  >
 <div id="wb_Text5"><a href="../liste_produit">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Produit</strong></span></a></div>
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../liste_produit/index.php?id=<?php echo $ligne['id']; ?>">Produit</a></strong></span></a></div>
 
 <div id="wb_Image7">
 <img src="images/notee.png" id="Image7" alt=""></div>
 </div>
-<div id="Layer7" style="background-color: white;" >
+<div id="Layer7"  >
 <div id="wb_Image9"  >
 <img src="images/com.png" id="Image9" alt=""></div>
 <div id="wb_Text5"><a href="../liste_article">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Blog</strong></span></a></div>
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../liste_article/index.php?id=<?php echo $ligne['id']; ?>">Blog</a></strong></span></a></div>
 
 
 </div>
@@ -138,13 +138,13 @@ $result=mysqli_query($cxn,$requete);
 <div id="wb_Image8">
 <img src="images/cli.png" id="Image8" alt=""></div>
 <div id="wb_Text6"><a href="../liste_client">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Membres</strong></span></a></div>
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../liste_client/index.php?id=<?php echo $ligne['id']; ?>">Membres</a></strong></span></a></div>
 </div>
 <div id="Layer9">
 <div id="wb_Image6">
 <img src="images/mes.png" id="Image6" alt=""></div>
 <div id="wb_Text7"><a href="../liste_mail">
-<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong>Mails</strong><a/></span></div>
+<span style="color:#4EB1CB;font-family:Arial;font-size:13px;"><strong><a href="../liste_mail/index.php?id=<?php echo $ligne['id']; ?>">Mails</a></strong><a/></span></div>
 </div>
 </div>
 </div>
@@ -152,7 +152,7 @@ $result=mysqli_query($cxn,$requete);
 </div>
 <div id="Layer3">
 <div id="wb_Text2">
-<span style="color:#000000;font-family:Arial;font-size:10px;"><strong>Profil</strong></span></div>
+<span style="color:#000000;font-family:Arial;font-size:10px;"><strong><a href="../profil/index.php?id=<?php echo $ligne['id']; ?>"style="text-decoration:none; color:black;">Profil</a></strong></span></div>
 <div id="wb_Image3">
 <img src="images/logout.png" id="Image3" alt=""></div>
 <div id="wb_Image4">
@@ -172,6 +172,7 @@ $result=mysqli_query($cxn,$requete);
    <div id="wb_Text4">
       <span style="color:#FFFFFF;font-family:Arial;font-size:15px;"><strong>Klibi Hend</strong></span></div>
 </div>
+ <?php }?>
 </body>
 <script>
 function changeme() {
